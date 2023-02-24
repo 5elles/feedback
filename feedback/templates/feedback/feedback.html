@@ -1,8 +1,11 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Отзыв</title>
+    <link rel="stylesheet" href="{% static 'feedback/forms.css' %}">
 </head>
 
 <body>
@@ -11,7 +14,14 @@
 <br>
     <form action="/" method="post">
         {% csrf_token %}
-            {{ form }}
+
+        {% for field in form %}
+            <div class="form-style {% if field.errors %} errors {% endif %}">
+                {{ field.label_tag }}
+                {{ field.errors }}
+                {{ field }}
+            </div>
+        {% endfor %}
 
         <br><br>
             <button type="submit">Отправить</button>
