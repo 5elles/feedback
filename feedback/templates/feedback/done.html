@@ -1,10 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Done</title>
-</head>
-<body>
-    <h3>Ваш комментарий обработан</h3>
-</body>
-</html>
+{% extends 'base.html' %}
+
+
+{% block title %}
+    Done
+{% endblock %}
+
+{% block content %}
+    <br>
+    <h2>Спасибо за Ваш отзыв!</h2>
+    <h2>{{ name }} - {{ date }}</h2>
+{% endblock %}

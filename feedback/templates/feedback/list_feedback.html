@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+
+{% block title %} Все отзывы {% endblock %}
+
+{% block content %}
+    <h2>Список отзывов</h2> <br>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Имя</th>
+                <th>Фамилия</th>
+                <th>Отзыв</th>
+                <th>Оценка</th>
+                <th></th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for feedback in  object_list  %}
+                <tr>
+                    <td>{{ feedback.name }}</td>
+                    <td>{{ feedback.surname }}</td>
+                    <td>{{ feedback.feedback }}</td>
+                    <td>{{ feedback.rating }}</td>
+                    <td><a href="update/{{ feedback.id }}">Изменить</a></td>
+                    <td><a href="delete/{{ feedback.id }}">Удалить</a></td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

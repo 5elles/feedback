@@ -1,17 +1,15 @@
-{% load static %}
+{% extends  'base.html'%}
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Отзыв</title>
-    <link rel="stylesheet" href="{% static 'feedback/forms.css' %}">
-</head>
+<title>
+    {% block title %}
+    Страница отзывов
+    {% endblock %}
+</title>
 
-<body>
-    <h2>Оставьте отзыв</h2>
 
-<br>
+{% block content %}
+    <h2>Add feedback</h2>
+
     <form method="post">
         {% csrf_token %}
 
@@ -23,10 +21,8 @@
             </div>
         {% endfor %}
 
-        <br><br>
             <button type="submit">Отправить</button>
     </form>
+{% endblock %}
 
 
-</body>
-</html>

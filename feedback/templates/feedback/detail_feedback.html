@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block title %} Отзыв от клиента {{ object.surname }} {% endblock %}
+
+{% block content %}
+    <h2>Отзыв от клиента  {{ object.name }} {{ object.surname }}</h2>
+    <br><br>
+    <table>
+        <tr >
+            <td>Фамилия клиента: </td>  <th width="80%">{{ object.surname }}</th>
+        </tr>
+        <tr>
+            <td>Имя клиента:</td>         <th>{{ object.name }}</th>
+        </tr>
+        <tr>
+            <td>Оценка:</td>            <th>{{ object.rating }}</th>
+        </tr>
+        <tr>
+            <td>Текст отзыва:</td>      <th>{{ object.feedback }}</th>
+        </tr>
+    </table>
+{% endblock %}
