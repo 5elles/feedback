@@ -10,6 +10,9 @@ import datetime
 
 
 # Create your views here.
+class Main(View):
+    def get(self, request):
+        return render(request, 'feedback/mainPage.html')
 
 class FeedBackViewUpdate(UpdateView):
     model = Feedback
@@ -28,18 +31,6 @@ class FeedBackView(CreateView):
     template_name = 'feedback/feedback.html'
     success_url = '/done'
 
-
-# class FeedBackView(View):
-#     def get(self, request):
-#         form = FeedbackForm()
-#         return render(request, 'feedback/feedback.html', context={'form': form})
-#
-#     def post(self, request):
-#         form = FeedbackForm(request.POST)
-#         if form.is_valid():
-#             form.save()
-#             return HttpResponseRedirect('/done')
-#         return render(request, 'feedback/feedback.html', context={'form': form})
 
 class DoneView(TemplateView):
     template_name = 'feedback/done.html'
